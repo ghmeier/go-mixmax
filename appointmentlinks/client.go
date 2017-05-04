@@ -17,7 +17,7 @@ func (c *Client) Me() (*models.AppointmentLinks, error) {
 	var res models.AppointmentLinks
 	err := c.S.Send(&service.Request{
 		Method:  http.MethodGet,
-		URL:     fmt.Sprintf("%s/me", c.URL),
+		URL:     fmt.Sprintf("%s/appointmentlinks/me", c.URL),
 		Headers: map[string]string{"X-API-Token": c.Key},
 	}, &res)
 
@@ -48,7 +48,7 @@ func (c *Client) Get(name string) (*models.AppointmentLinks, error) {
 	var res models.AppointmentLinks
 	err := c.S.Send(&service.Request{
 		Method:  http.MethodGet,
-		URL:     fmt.Sprintf("%s?name=%s", c.URL, name),
+		URL:     fmt.Sprintf("%s/appointmentlinks?name=%s", c.URL, name),
 		Headers: map[string]string{"X-API-Token": c.Key},
 	}, &res)
 

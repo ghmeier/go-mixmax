@@ -17,7 +17,7 @@ func (c *Client) List() (*models.CodeSnippets, error) {
 	var res models.CodeSnippets
 	err := c.S.Send(&service.Request{
 		Method:  http.MethodGet,
-		URL:     fmt.Sprintf("%s", c.URL),
+		URL:     fmt.Sprintf("%s/codesnippets", c.URL),
 		Headers: map[string]string{"X-API-Token": c.Key},
 	}, &res)
 
@@ -32,7 +32,7 @@ func (c *Client) Get(id string) (*models.CodeSnippet, error) {
 	var res models.CodeSnippet
 	err := c.S.Send(&service.Request{
 		Method:  http.MethodGet,
-		URL:     fmt.Sprintf("%s/%s", c.URL, id),
+		URL:     fmt.Sprintf("%s/codesnippets/%s", c.URL, id),
 		Headers: map[string]string{"X-API-Token": c.Key},
 	}, &res)
 
