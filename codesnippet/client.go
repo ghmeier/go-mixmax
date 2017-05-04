@@ -42,3 +42,33 @@ func (c *Client) Get(id string) (*models.CodeSnippet, error) {
 
 	return &res, nil
 }
+
+func (c *Client) New(p *models.CodeSnippetParams) (string, error) {
+	var snippet models.CodeSnippetResult
+	err := c.S.Send(&service.Request{
+		Method:  http.MethodPost,
+		URL:     fmt.Sprintf("%s/codesnippets", c.URL),
+		Headers: map[string]string{"X-API-Token": c.Key},
+		Data:    p,
+	}, &snippet)
+
+	return snippet.ID, err
+}
+
+func (c *Client) Update(s *models.CodeSnippet) (string, error) {
+	var snippet models.CodeSnippetResult
+	err := c.S.Send(&service.Request{
+		Method:  http.MethodPatch,
+		URL:     fmt.Sprintf("%s/codesnippets/%s", c.URL, s.ID),
+		Headers: map[string]string{"X-API-Token": c.Key},
+		Data: &models.CodeSnippetParams{
+			HTML:       s.HTML,
+			Title:      s.Title,
+			Background: s.Background,
+			Theme:      s.Theme,
+			Language:   s.Language,
+		},
+	}, &snippet)
+
+	return snippet.ID, err
+}

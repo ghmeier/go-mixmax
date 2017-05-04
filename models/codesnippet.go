@@ -16,3 +16,13 @@ type CodeSnippet struct {
 	Theme      string `json:"theme,omitempty"`
 	Language   string `json:"language,omitempty"`
 }
+type CodeSnippetParams struct {
+	HTML       string `json:"html,omitempty"`
+	Title      string `json:"title,omitempty"`
+	Background string `json:"background,omitempty"`
+	Theme      string `json:"theme,omitempty"`
+	Language   string `json:"language,omitempty"`
+}
+type CodeSnippetResult struct {
+	ID string `json:"id"`
+}
