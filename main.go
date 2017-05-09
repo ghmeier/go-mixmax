@@ -9,6 +9,7 @@ import (
 	"github.com/ghmeier/go-mixmax/contacts"
 	"github.com/ghmeier/go-mixmax/events"
 	"github.com/ghmeier/go-mixmax/filerequests"
+	"github.com/ghmeier/go-mixmax/integrations"
 )
 
 type Client struct {
@@ -19,6 +20,7 @@ type Client struct {
 	ContactGroups    *contactgroups.Client
 	Events           *events.Client
 	FileRequests     *filerequests.Client
+	Integrations     *integrations.Client
 }
 
 func New(key string) *Client {
@@ -31,5 +33,6 @@ func New(key string) *Client {
 	c.ContactGroups = contactgroups.New(client)
 	c.Events = events.New(client)
 	c.FileRequests = filerequests.New(client)
+	c.Integrations = integrations.New(client)
 	return c
 }
