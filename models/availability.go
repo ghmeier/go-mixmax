@@ -24,12 +24,12 @@ type Availability struct {
 }
 
 type Timeslot struct {
-	Start  time.Time `json:"start,omitempty"`
-	End    time.Time `json:"end,omitempty"`
-	Events []Event   `json:"events,omitempty"`
+	Start  time.Time    `json:"start,omitempty"`
+	End    time.Time    `json:"end,omitempty"`
+	Events []TimedEvent `json:"events,omitempty"`
 }
 
-type Event struct {
+type TimedEvent struct {
 	Guest Guest  `json:"guest,omitempty"`
 	ID    string `json:"id,omitempty"`
 }

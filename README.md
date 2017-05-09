@@ -1,4 +1,4 @@
 # go-mixmax
 Golang Mixmax API Client
 
-WIP currently. `5/23` base endpoints.
+WIP currently. `6/23` base endpoints.

@@ -10,12 +10,12 @@ type Contacts struct {
 }
 
 type Contact struct {
-	ID        string            `json:"_id"`
+	ID        string            `json:"_id,omitempty"`
 	Name      string            `json:"name"`
 	Email     string            `json:"email"`
-	UserID    string            `json:"userId"`
-	ContactID string            `json:"contactID"`
-	Analytics *ContactAnalytics `json:"analytics"`
+	UserID    string            `json:"userId,omitempty"`
+	ContactID string            `json:"contactID,omitempty"`
+	Analytics *ContactAnalytics `json:"analytics,omitempty"`
 }
 
 type ContactParams struct {
