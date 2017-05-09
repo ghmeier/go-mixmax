@@ -1,7 +1,6 @@
 package appointmentlinks
 
 import (
-	"fmt"
 	"net/http"
 
 	"github.com/ghmeier/go-mixmax/client"
@@ -13,12 +12,19 @@ type Client struct {
 	*client.Client
 }
 
+func New(c *client.Client) *Client {
+	return &Client{
+		Client: &client.Client{
+			Key: c.Key,
+			S:   c.S.Copy("appointmentlinks"),
+		},
+	}
+}
+
 func (c *Client) Me() (*models.AppointmentLinks, error) {
 	var res models.AppointmentLinks
-	err := c.S.Send(&service.Request{
-		Method:  http.MethodGet,
-		URL:     fmt.Sprintf("%s/appointmentlinks/me", c.URL),
-		Headers: map[string]string{"X-API-Token": c.Key},
+	err := c.S.Copy("me").Send(&service.Request{
+		Method: http.MethodGet,
 	}, &res)
 
 	if err != nil {
@@ -30,11 +36,9 @@ func (c *Client) Me() (*models.AppointmentLinks, error) {
 
 func (c *Client) Set(name string) error {
 	req := &models.AppointmentLinks{Name: name}
-	err := c.S.Send(&service.Request{
-		Method:  http.MethodPatch,
-		URL:     fmt.Sprintf("%s/me", c.URL),
-		Headers: map[string]string{"X-API-Token": c.Key},
-		Data:    req,
+	err := c.S.Copy("me").Send(&service.Request{
+		Method: http.MethodPatch,
+		Data:   req,
 	}, nil)
 
 	if err != nil {
@@ -47,9 +51,8 @@ func (c *Client) Set(name string) error {
 func (c *Client) Get(name string) (*models.AppointmentLinks, error) {
 	var res models.AppointmentLinks
 	err := c.S.Send(&service.Request{
-		Method:  http.MethodGet,
-		URL:     fmt.Sprintf("%s/appointmentlinks?name=%s", c.URL, name),
-		Headers: map[string]string{"X-API-Token": c.Key},
+		Method: http.MethodGet,
+		Params: map[string]string{"name": name},
 	}, &res)
 
 	if err != nil {

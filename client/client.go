@@ -12,7 +12,6 @@ import (
 
 type Client struct {
 	Key string
-	URL string
 	S   service.Service
 }
 
@@ -23,10 +22,19 @@ const (
 func New(key string) *Client {
 	c := &Client{
 		Key: key,
-		S:   service.NewCustom(&responder{}),
-		URL: "https://api.mixmax.com/" + version,
 	}
+	c.S = service.NewCustom("https://api.mixmax.com/", &responder{}).
+		Copy(version)
+	c.S.Middleware(c.addKey())
 	return c
+}
+
+func (c *Client) addKey() service.RequestFunc {
+	return func(req *service.Request) *service.Request {
+		req.Headers = make(map[string]string)
+		req.Headers["X-API-Token"] = c.Key
+		return req
+	}
 }
 
 type responder struct {

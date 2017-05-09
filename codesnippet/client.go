@@ -1,7 +1,6 @@
 package codesnippet
 
 import (
-	"fmt"
 	"net/http"
 
 	"github.com/ghmeier/go-mixmax/client"
@@ -13,13 +12,18 @@ type Client struct {
 	*client.Client
 }
 
+func New(c *client.Client) *Client {
+	return &Client{
+		Client: &client.Client{
+			Key: c.Key,
+			S:   c.S.Copy("codesnippets"),
+		},
+	}
+}
+
 func (c *Client) List() (*models.CodeSnippets, error) {
 	var res models.CodeSnippets
-	err := c.S.Send(&service.Request{
-		Method:  http.MethodGet,
-		URL:     fmt.Sprintf("%s/codesnippets", c.URL),
-		Headers: map[string]string{"X-API-Token": c.Key},
-	}, &res)
+	err := c.S.Send(&service.Request{Method: http.MethodGet}, &res)
 
 	if err != nil {
 		return nil, err
@@ -30,11 +34,7 @@ func (c *Client) List() (*models.CodeSnippets, error) {
 
 func (c *Client) Get(id string) (*models.CodeSnippet, error) {
 	var res models.CodeSnippet
-	err := c.S.Send(&service.Request{
-		Method:  http.MethodGet,
-		URL:     fmt.Sprintf("%s/codesnippets/%s", c.URL, id),
-		Headers: map[string]string{"X-API-Token": c.Key},
-	}, &res)
+	err := c.S.Copy(id).Send(&service.Request{Method: http.MethodGet}, &res)
 
 	if err != nil {
 		return nil, err
@@ -46,10 +46,8 @@ func (c *Client) Get(id string) (*models.CodeSnippet, error) {
 func (c *Client) New(p *models.CodeSnippetParams) (string, error) {
 	var snippet models.CodeSnippetResult
 	err := c.S.Send(&service.Request{
-		Method:  http.MethodPost,
-		URL:     fmt.Sprintf("%s/codesnippets", c.URL),
-		Headers: map[string]string{"X-API-Token": c.Key},
-		Data:    p,
+		Method: http.MethodPost,
+		Data:   p,
 	}, &snippet)
 
 	return snippet.ID, err
@@ -57,10 +55,8 @@ func (c *Client) New(p *models.CodeSnippetParams) (string, error) {
 
 func (c *Client) Update(s *models.CodeSnippet) (string, error) {
 	var snippet models.CodeSnippetResult
-	err := c.S.Send(&service.Request{
-		Method:  http.MethodPatch,
-		URL:     fmt.Sprintf("%s/codesnippets/%s", c.URL, s.ID),
-		Headers: map[string]string{"X-API-Token": c.Key},
+	err := c.S.Copy(s.ID).Send(&service.Request{
+		Method: http.MethodPatch,
 		Data: &models.CodeSnippetParams{
 			HTML:       s.HTML,
 			Title:      s.Title,
