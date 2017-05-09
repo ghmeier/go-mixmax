@@ -92,3 +92,19 @@ func (c *Client) NewNote(id, text string) error {
 	}, nil)
 	return err
 }
+
+func (c *Client) UpdateNote(id, noteId, text string) error {
+	err := c.S.Copy(id, "notes", noteId).Send(&service.Request{
+		Method: http.MethodPatch,
+		Params: map[string]string{"expand": ""},
+		Data:   map[string]string{"text": text},
+	}, nil)
+	return err
+}
+
+func (c *Client) DeleteNote(id, noteId string) error {
+	err := c.S.Copy(id, "notes", noteId).Send(&service.Request{
+		Method: http.MethodDelete,
+	}, nil)
+	return err
+}
