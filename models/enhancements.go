@@ -17,7 +17,7 @@ type Enhancement struct {
 	Icon         string      `json:"icon"`
 	IconTooltip  string      `json:"iconTooltip"`
 	EditorURL    string      `json:"editorUrl"`
-	Commands     []*string   `json:"commands"`
+	Commands     []string    `json:"commands"`
 	ResolveURL   string      `json:"resolveUrl"`
 	ActivateURL  string      `json:"activateUrl"`
 	EditorHeight int         `json:"editorHeight"`
