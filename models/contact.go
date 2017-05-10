@@ -6,7 +6,7 @@ import (
 
 type Contacts struct {
 	Results []*Contact `json:"results"`
-	NextID  string     `json:"next"`
+	*ResultList
 }
 
 type Contact struct {
@@ -50,11 +50,8 @@ type ContactPercentages struct {
 }
 
 type Notes struct {
-	Results    []*Note `json:"results"`
-	Next       bool    `json:"hasNext"`
-	Previous   bool    `json:"hasPrevious"`
-	NextID     string  `json:"next"`
-	PreviousID string  `json:"previous"`
+	Results []*Note `json:"results"`
+	*ResultList
 }
 
 type Note struct {

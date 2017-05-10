@@ -6,6 +6,7 @@ import (
 
 type FileRequests struct {
 	Results []*FileRequest `json:"results"`
+	*ResultList
 }
 
 type FileRequest struct {

@@ -5,11 +5,8 @@ import (
 )
 
 type Commands struct {
-	Results    []*Command `json:"results"`
-	PreviousID string     `json:"previous"`
-	NextID     string     `json:"next"`
-	Previous   bool       `json:"previous"`
-	Next       bool       `json:"next"`
+	Results []*Command `json:"results"`
+	*ResultList
 }
 
 type Command struct {

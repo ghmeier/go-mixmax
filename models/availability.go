@@ -6,7 +6,7 @@ import (
 
 type Availabilities struct {
 	Results []*Availability `json:"results,omitempty"`
-	Next    bool            `json:"hasNext"`
+	*ResultList
 }
 type Availability struct {
 	ID             string     `json:"_id"`

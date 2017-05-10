@@ -4,7 +4,7 @@ import ()
 
 type CodeSnippets struct {
 	Results []*CodeSnippet `json:"results,omitempty"`
-	Next    bool           `json:"hasNext"`
+	*ResultList
 }
 type CodeSnippet struct {
 	ID         string `json:"_id"`

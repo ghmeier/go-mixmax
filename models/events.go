@@ -6,8 +6,7 @@ import (
 
 type Events struct {
 	Results []*Event `json:"results"`
-	NextID  string   `json:"next"`
-	Next    bool     `json:"hasNext"`
+	*ResultList
 }
 
 type Event struct {

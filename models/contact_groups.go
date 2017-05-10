@@ -4,6 +4,7 @@ import ()
 
 type ContactGroups struct {
 	Results []*ContactGroup `json:"results"`
+	*ResultList
 }
 
 type ContactGroup struct {
