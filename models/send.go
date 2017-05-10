@@ -13,5 +13,6 @@ type Send struct {
 
 type Recipient struct {
 	Name    string `json:"name"`
-	Address string `json:"address"`
+	Address string `json:"address,omitempty"`
+	Email   string `json:"email,omitempty"`
 }
