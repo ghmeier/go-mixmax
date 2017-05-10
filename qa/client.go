@@ -1,4 +1,4 @@
-package polls
+package qa
 
 import (
 	"net/http"
@@ -16,7 +16,7 @@ func New(c *client.Client) *Client {
 	return &Client{
 		Client: &client.Client{
 			Key: c.Key,
-			S:   c.S.Copy("polls"),
+			S:   c.S.Copy("qa"),
 		},
 	}
 }

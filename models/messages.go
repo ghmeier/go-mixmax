@@ -23,7 +23,7 @@ type Message struct {
 	LinkTracking  bool          `json:"linkTrackingEnabled"`
 	Notifications bool          `json:"notificationsEnabled"`
 	TeamIDs       []string      `json:"teamIds"`
-	FollowUp      Reminder      `json:"followUp"`
+	FollowUp      *FollowUp     `json:"followUp"`
 	Attachments   []*Attachment `json:"attachments"`
 	SnippetIDs    []string      `json:"snippetIds"`
 	Sequence      *Sequence     `json:"sequence"`
@@ -34,7 +34,7 @@ type Message struct {
 	ErrorResponse string        `json:"errorResponse"`
 }
 
-type Reminder struct {
+type FollowUp struct {
 	UnparsedDate string `json:"unparsedDate"`
 	Trigger      string `json:"trigger"`
 	Description  string `json:"description"`

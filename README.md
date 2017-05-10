@@ -1,7 +1,7 @@
 # go-mixmax
 Golang Mixmax API Client
 
-WIP currently. `10/23` base endpoints.
+WIP currently. `12/23` base endpoints.
 
 Not Implemented:
 * /insightsreports
