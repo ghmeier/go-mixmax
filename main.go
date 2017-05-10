@@ -14,6 +14,9 @@ import (
 	"github.com/ghmeier/go-mixmax/polls"
 	"github.com/ghmeier/go-mixmax/qa"
 	"github.com/ghmeier/go-mixmax/reminders"
+	"github.com/ghmeier/go-mixmax/rules"
+	"github.com/ghmeier/go-mixmax/send"
+	"github.com/ghmeier/go-mixmax/sequences"
 )
 
 type Client struct {
@@ -29,6 +32,9 @@ type Client struct {
 	Polls            *polls.Client
 	QAs              *qa.Client
 	Reminders        *reminders.Client
+	Rules            *rules.Client
+	Send             *send.Client
+	Sequences        *sequences.Client
 }
 
 func New(key string) *Client {
@@ -46,5 +52,8 @@ func New(key string) *Client {
 	c.Polls = polls.New(client)
 	c.QAs = qa.New(client)
 	c.Reminders = reminders.New(client)
+	c.Rules = rules.New(client)
+	c.Send = send.New(client)
+	c.Sequences = sequences.New(client)
 	return c
 }

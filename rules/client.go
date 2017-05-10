@@ -2,7 +2,6 @@ package rules
 
 import (
 	"net/http"
-	"strconv"
 
 	"github.com/ghmeier/go-mixmax/client"
 	"github.com/ghmeier/go-mixmax/models"
@@ -33,7 +32,7 @@ func (c *Client) List() (*models.Rules, error) {
 	return &res, nil
 }
 
-func (c *Client) New(rules *models.RuleParams) (*models.Reminder, error) {
+func (c *Client) New(rule *models.RuleParams) (*models.Rule, error) {
 	var res models.Rule
 	err := c.S.Send(&service.Request{Method: http.MethodPost, Data: rule}, &res)
 
