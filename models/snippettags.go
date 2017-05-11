@@ -10,13 +10,13 @@ type SnippetTags struct {
 }
 
 type SnippetTag struct {
-	ID        string      `json:"_id"`
-	UserID    string      `json:"userId"`
-	CreatedAt time.Time   `json:"createdAt"`
-	SavedAt   time.Time   `json:"savedAt"`
-	Name      string      `json:"name"`
-	Count     int         `json:"count,omitempty"`
-	Shared    interface{} `json:"shared"`
+	ID        string    `json:"_id"`
+	UserID    string    `json:"userId"`
+	CreatedAt time.Time `json:"createdAt"`
+	SavedAt   time.Time `json:"savedAt"`
+	Name      string    `json:"name"`
+	Count     int       `json:"count,omitempty"`
+	Shared    Shared    `json:"shared"`
 }
 
 type SnippetTagFilterParams struct {

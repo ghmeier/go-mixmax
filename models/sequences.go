@@ -25,7 +25,7 @@ type Sequence struct {
 	Variables           []string             `json:"variables"`
 	CRMsConnnected      []CRMConnect         `json:"crmConnected"`
 	Timezone            string               `json:"timezone"`
-	Shared              interface{}          `json:"shared"`
+	Shared              Shared               `json:"shared"`
 }
 
 type SequenceFilterParams struct {

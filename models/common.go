@@ -21,3 +21,27 @@ type SortQuery struct {
 type User struct {
 	ID string `json:"_id"`
 }
+
+type SharedUser struct {
+	UserID   string     `json:"userId"`
+	Email    string     `json:"email"`
+	Role     SharedRole `json:"role"`
+	Accepted bool       `json:"accepted"`
+}
+
+type SharedTeam struct {
+	ID   string     `json:"_id"`
+	Role SharedRole `json:"role"`
+}
+
+type Shared struct {
+	Users []*SharedUser `json:"users"`
+	Teams []*SharedTeam `json:"teams"`
+}
+
+type SharedRole string
+
+const (
+	SHARED_READ  SharedRole = "read-only"
+	SHARED_WRITE            = "read-write"
+)

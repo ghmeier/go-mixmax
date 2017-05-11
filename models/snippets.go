@@ -10,16 +10,16 @@ type Snippets struct {
 }
 
 type Snippet struct {
-	ID        string      `json:"_id"`
-	UserID    string      `json:"userId"`
-	CreatedAt time.Time   `json:"createdAt"`
-	SavedAt   time.Time   `json:"savedAt"`
-	DeletedAt time.Time   `json:"deletedAt"`
-	SavedBy   string      `json:"savedBy"`
-	Name      string      `json:"name"`
-	Title     string      `json:"title"`
-	Source    string      `json:"source"`
-	Shared    interface{} `json:"shared"`
+	ID        string    `json:"_id"`
+	UserID    string    `json:"userId"`
+	CreatedAt time.Time `json:"createdAt"`
+	SavedAt   time.Time `json:"savedAt"`
+	DeletedAt time.Time `json:"deletedAt"`
+	SavedBy   string    `json:"savedBy"`
+	Name      string    `json:"name"`
+	Title     string    `json:"title"`
+	Source    string    `json:"source"`
+	Shared    Shared    `json:"shared"`
 }
 
 type SnippetParams struct {
