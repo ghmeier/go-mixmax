@@ -20,6 +20,8 @@ import (
 	"github.com/ghmeier/go-mixmax/snippets"
 	"github.com/ghmeier/go-mixmax/snippettags"
 	"github.com/ghmeier/go-mixmax/teams"
+	"github.com/ghmeier/go-mixmax/unsubscribes"
+	"github.com/ghmeier/go-mixmax/userpreferences"
 )
 
 type Client struct {
@@ -41,6 +43,8 @@ type Client struct {
 	Snippets         *snippets.Client
 	SnippetTags      *snippettags.Client
 	Teams            *teams.Client
+	Unsubscribes     *unsubscribes.Client
+	UserPreferences  *userpreferences.Client
 }
 
 func New(key string) *Client {
@@ -64,5 +68,7 @@ func New(key string) *Client {
 	c.Snippets = snippets.New(client)
 	c.SnippetTags = snippettags.New(client)
 	c.Teams = teams.New(client)
+	c.Unsubscribes = unsubscribes.New(client)
+	c.UserPreferences = userpreferences.New(client)
 	return c
 }

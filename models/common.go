@@ -12,3 +12,8 @@ type ResultList struct {
 type ExpandQuery struct {
 	Expand string
 }
+
+type SortQuery struct {
+	Sort      string
+	Ascending bool
+}

@@ -20,8 +20,7 @@ type SnippetTag struct {
 }
 
 type SnippetTagFilterParams struct {
-	Sort      string
-	Ascending bool
-	Search    string
+	Search string
 	*ExpandQuery
+	*SortQuery
 }
