@@ -17,3 +17,7 @@ type SortQuery struct {
 	Sort      string
 	Ascending bool
 }
+
+type User struct {
+	ID string `json:"_id"`
+}

@@ -22,6 +22,8 @@ import (
 	"github.com/ghmeier/go-mixmax/teams"
 	"github.com/ghmeier/go-mixmax/unsubscribes"
 	"github.com/ghmeier/go-mixmax/userpreferences"
+	"github.com/ghmeier/go-mixmax/users"
+	"github.com/ghmeier/go-mixmax/yesno"
 )
 
 type Client struct {
@@ -45,6 +47,8 @@ type Client struct {
 	Teams            *teams.Client
 	Unsubscribes     *unsubscribes.Client
 	UserPreferences  *userpreferences.Client
+	Users            *users.Client
+	YesNo            *yesno.Client
 }
 
 func New(key string) *Client {
@@ -70,5 +74,7 @@ func New(key string) *Client {
 	c.Teams = teams.New(client)
 	c.Unsubscribes = unsubscribes.New(client)
 	c.UserPreferences = userpreferences.New(client)
+	c.Users = users.New(client)
+	c.YesNo = yesno.New(client)
 	return c
 }
