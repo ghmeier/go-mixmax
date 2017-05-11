@@ -31,3 +31,14 @@ func (c *Client) List() (*models.YesNos, error) {
 
 	return res, nil
 }
+
+func (c *Client) Get(id string) (*models.YesNo, error) {
+	var res models.YesNo
+	err := c.S.Send(&service.Request{Method: http.MethodGet}, &res)
+
+	if err != nil {
+		return nil, err
+	}
+
+	return res, nil
+}

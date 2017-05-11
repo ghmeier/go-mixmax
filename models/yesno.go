@@ -10,7 +10,14 @@ type YesNos struct {
 }
 
 type YesNo struct {
-	ID      string    `json:"_id"`
-	UserID  string    `json:"userId"`
-	Created time.Time `json:"created"`
+	ID      string      `json:"_id"`
+	UserID  string      `json:"userId"`
+	Created time.Time   `json:"created"`
+	Text    string      `json:"text"`
+	Answers []*Response `json:"answers"`
+}
+
+type Response struct {
+	Text        string   `json:"text"`
+	Respondents []string `json:"respondents"`
 }
