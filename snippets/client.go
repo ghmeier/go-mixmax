@@ -2,8 +2,8 @@ package snippets
 
 import (
 	"net/http"
+	"strconv"
 	"strings"
-	"time"
 
 	"github.com/ghmeier/go-mixmax/client"
 	"github.com/ghmeier/go-mixmax/models"
@@ -31,12 +31,12 @@ func (c *Client) List() (*models.Snippets, error) {
 		return nil, err
 	}
 
-	return *res, nil
+	return &res, nil
 }
 
 func (c *Client) Get(id string, options *models.SnippetFilterParams) (*models.Snippet, error) {
 	params := map[string]string{
-		"includeDeleted": options.IncludeDeleted,
+		"includeDeleted": strconv.FormatBool(options.IncludeDeleted),
 		"expand":         options.Expand,
 		"fields":         strings.Join(options.Fields, ","),
 	}
@@ -71,7 +71,7 @@ func (c *Client) Update(id string, update *models.SnippetParams, options *models
 }
 
 func (c *Client) Delete(id string) error {
-	err := c.S.Copy(id).Send(&service.Request{Method: http.MethodDelete}, &res)
+	err := c.S.Copy(id).Send(&service.Request{Method: http.MethodDelete}, nil)
 	return err
 }
 

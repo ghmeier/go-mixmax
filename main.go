@@ -17,6 +17,7 @@ import (
 	"github.com/ghmeier/go-mixmax/rules"
 	"github.com/ghmeier/go-mixmax/send"
 	"github.com/ghmeier/go-mixmax/sequences"
+	"github.com/ghmeier/go-mixmax/snippets"
 )
 
 type Client struct {
@@ -35,6 +36,7 @@ type Client struct {
 	Rules            *rules.Client
 	Send             *send.Client
 	Sequences        *sequences.Client
+	Snippets         *snippets.Client
 }
 
 func New(key string) *Client {
@@ -55,5 +57,6 @@ func New(key string) *Client {
 	c.Rules = rules.New(client)
 	c.Send = send.New(client)
 	c.Sequences = sequences.New(client)
+	c.Snippets = snippets.New(client)
 	return c
 }
