@@ -18,6 +18,8 @@ import (
 	"github.com/ghmeier/go-mixmax/send"
 	"github.com/ghmeier/go-mixmax/sequences"
 	"github.com/ghmeier/go-mixmax/snippets"
+	"github.com/ghmeier/go-mixmax/snippettags"
+	"github.com/ghmeier/go-mixmax/teams"
 )
 
 type Client struct {
@@ -37,6 +39,8 @@ type Client struct {
 	Send             *send.Client
 	Sequences        *sequences.Client
 	Snippets         *snippets.Client
+	SnippetTags      *snippettags.Client
+	Teams            *teams.Client
 }
 
 func New(key string) *Client {
@@ -58,5 +62,7 @@ func New(key string) *Client {
 	c.Send = send.New(client)
 	c.Sequences = sequences.New(client)
 	c.Snippets = snippets.New(client)
+	c.SnippetTags = snippettags.New(client)
+	c.Teams = teams.New(client)
 	return c
 }

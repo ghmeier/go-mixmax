@@ -8,3 +8,7 @@ type ResultList struct {
 	NextID     string `json:"next,omitempty"`
 	PreviousID string `json:"previous,omitempty"`
 }
+
+type ExpandQuery struct {
+	Expand string
+}

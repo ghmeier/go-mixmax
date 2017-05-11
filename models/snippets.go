@@ -30,8 +30,8 @@ type SnippetParams struct {
 
 type SnippetFilterParams struct {
 	IncludeDeleted bool
-	Expand         string
 	Fields         []string
+	*ExpandQuery
 }
 
 type SnippetSendParams struct {

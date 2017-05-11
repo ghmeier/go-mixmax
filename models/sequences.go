@@ -30,8 +30,8 @@ type Sequence struct {
 
 type SequenceFilterParams struct {
 	Name   string
-	Expand string
 	Folder string
+	*ExpandQuery
 }
 
 type SequenceCancel struct {
