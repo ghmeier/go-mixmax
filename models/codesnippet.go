@@ -1,11 +1,10 @@
 package models
 
-import ()
-
 type CodeSnippets struct {
 	Results []*CodeSnippet `json:"results,omitempty"`
 	*ResultList
 }
+
 type CodeSnippet struct {
 	ID         string `json:"_id"`
 	UserId     string `json:"userId,omitempty"`
@@ -16,6 +15,7 @@ type CodeSnippet struct {
 	Theme      string `json:"theme,omitempty"`
 	Language   string `json:"language,omitempty"`
 }
+
 type CodeSnippetParams struct {
 	HTML       string `json:"html,omitempty"`
 	Title      string `json:"title,omitempty"`
@@ -23,6 +23,7 @@ type CodeSnippetParams struct {
 	Theme      string `json:"theme,omitempty"`
 	Language   string `json:"language,omitempty"`
 }
+
 type CodeSnippetResult struct {
 	ID string `json:"id"`
 }

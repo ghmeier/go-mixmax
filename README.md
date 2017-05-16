@@ -1,5 +1,5 @@
 #Go Mixmax
-[![GoDoc](http://img.shields.io/badge/godoc-reference-blue.svg)](http://godoc.org/github.com/ghmeier/go-mixmax) [![Go project version](https://badge.fury.io/go/github.com%2Fghmeier%2Fgo-mixmax.svg)](https://badge.fury.io/go/github.com%2Fghmeier%2Fgo-mixmax)
+[![GoDoc](http://img.shields.io/badge/godoc-reference-blue.svg)](http://godoc.org/github.com/ghmeier/go-mixmax) [![Go project version](https://badge.fury.io/go/github.com%2Fghmeier%2Fgo-mixmax.svg)](https://badge.fury.io/go/github.com%2Fghmeier%2Fgo-mixmax) [![Go Report Card](https://goreportcard.com/badge/github.com/ghmeier/go-mixmax)](https://goreportcard.com/report/github.com/ghmeier/go-mixmax)
 
 ##Summary
 

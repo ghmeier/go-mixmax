@@ -1,7 +1,5 @@
 package models
 
-import ()
-
 type Send struct {
 	To      []*Recipient `json:"to,omitempty"`
 	CC      []*Recipient `json:"cc,omitempty"`

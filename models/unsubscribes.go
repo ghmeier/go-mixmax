@@ -1,7 +1,5 @@
 package models
 
-import ()
-
 type Unsubscribes struct {
 	Results []*Unsubscribe `json:"results"`
 	*ResultList
