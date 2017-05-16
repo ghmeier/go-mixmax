@@ -26,7 +26,7 @@ type ContactParams struct {
 	ContactID    string      `json:"contactId"`
 	SalseforceID string      `json:"salesforceId"`
 	MarkAsUsed   bool        `json:"markAsUsed"`
-	Enrish       bool        `json:"enrich"`
+	Enrich       bool        `json:"enrich"`
 }
 
 type ContactAnalytics struct {

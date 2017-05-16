@@ -12,7 +12,7 @@ type Client struct {
 	*client.Client
 }
 
-func New(c *client.Client) *Client {
+func New(key string) *Client {
 	return &Client{
 		Client: &client.Client{
 			Key: c.Key,
