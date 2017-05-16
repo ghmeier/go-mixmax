@@ -1,17 +1,17 @@
-#Go Mixmax
+# Go Mixmax
 [![GoDoc](http://img.shields.io/badge/godoc-reference-blue.svg)](http://godoc.org/github.com/ghmeier/go-mixmax) [![Go project version](https://badge.fury.io/go/github.com%2Fghmeier%2Fgo-mixmax.svg)](https://badge.fury.io/go/github.com%2Fghmeier%2Fgo-mixmax) [![Go Report Card](https://goreportcard.com/badge/github.com/ghmeier/go-mixmax)](https://goreportcard.com/report/github.com/ghmeier/go-mixmax)
 
-##Summary
+## Summary
 
 A golang Mixmax client library.
 
-##Installation
+## Installation
 
 ```
 go get github.com/ghmeier/go-mixmax
 ```
 
-##Documentation
+## Documentation
 
 Check out the [Mixmax API documentation](http://developer.mixmax.com/docs/) for an exhaustive list of examples and explanations.
 
@@ -19,7 +19,7 @@ View the [GoDoc](http://godoc.org/github.com/ghmeier/go-mixmax) for implementati
 
 Here are some simple examples:
 
-###Contacts
+### Contacts
 
 ```
 mixmax := mixmax.New(apiKey)
@@ -31,7 +31,7 @@ params := &models.ContactParams{
 err := mixmax.Contacts.New(params)
 ```
 
-###Send
+### Send
 
 ```
 mixmax := mixmax.New(apiKey)
@@ -45,7 +45,7 @@ params := &models.Send{
 err := mixmax.Send.New(params)
 ```
 
-##Usage
+## Usage
 
 Each major API resource is contained under the main mixmax client, so usage requires initializing the mixmax client with your [Mixmax API Token](http://developer.mixmax.com/docs/getting-started-with-the-api) and importing models that will be used to send requests. This example uses the `Contact` resource, but other resources follow the same pattern:
 
@@ -62,8 +62,7 @@ err := mm.Contact.New(mixmodels.ContactParams)
 contacts, err := mm.Contact.List()
 ```
 
-
-##Development
+## Development
 
 Go Mixmax is still in early development with changes likely to come. If you spot problems or missing functionality [open an issue](https://github.com/ghmeier/go-mixmax/issues/new) or [submit a pull request](https://github.com/ghmeier/go-mixmax/compare).
 
